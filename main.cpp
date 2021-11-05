@@ -136,44 +136,64 @@ int main()
   MyClassVector3 obj3(vec3);
   obj3.print();
 
+
   /****Section_Name***STL_Iterators*/ 
+
+  cout << endl << endl;
     
-  
+  vector<int> vint(10);
+  vint[0] = 10;
+  vint[1] = 20;
+  vint[2] = 30;
+  vint[3] = 40;
+  vint[4] = 50;
+  vint[5] = 60;
+  vint[6] = 70;
+  vint[7] = 80;
+  vint[8] = 90;
+  vint[9] = 100;
+  vint[10] = 110;
+
+  vector<int>::iterator it;
+  for (it = vint.begin(); it != vint.end(); ++it)
+  {
+    cout << " " << *it;
+  }
 
   /****Section_Name*** Stack*/
 
 
-    //Write comments that help one better understand what the code is doing.
+  //Write comments that help one better understand what the code is doing.
 
-    /****Section_Name**** Set*/
-    //Write the code as presented in: 3. std::set
+  /****Section_Name**** Set*/
+  //Write the code as presented in: 3. std::set
 
-    //Write comments that help one better understand what the code is doing.
+  //Write comments that help one better understand what the code is doing.
 
-    /****Section_Name****Pair_Structure*/
-    //Write the code as presented in: 4. std::pair structure
+  /****Section_Name****Pair_Structure*/
+  //Write the code as presented in: 4. std::pair structure
 
-    //Write comments that help one better understand what the code is doing.
+  //Write comments that help one better understand what the code is doing.
 
-    /****Section_Name**** Map_Insert*/
-    //Write the code as presented in: 14. std::map::insert
+  /****Section_Name**** Map_Insert*/
+  //Write the code as presented in: 14. std::map::insert
 
-    //Write comments that help one better understand what the code is doing.
+  //Write comments that help one better understand what the code is doing.
 
-    /****Section_Name****Map_Summary*/
-    //Write the code as presented in: 16. Map summary
+  /****Section_Name****Map_Summary*/
+  //Write the code as presented in: 16. Map summary
 
-    //Write comments that help one better understand what the code is doing.
+  //Write comments that help one better understand what the code is doing.
 
-    /****Section_Name**** Sort_Algorithm*/
-    //Write the code as presented in: 23. sort example
+  /****Section_Name**** Sort_Algorithm*/
+  //Write the code as presented in: 23. sort example
 
-    //Write comments that help one better understand what the code is doing.
+  //Write comments that help one better understand what the code is doing.
 
-    /****Section_Name****Predicate_Algorithm*/
-    //Write the code as presented in: 25. count_if and predicate function
+  /****Section_Name****Predicate_Algorithm*/
+  //Write the code as presented in: 25. count_if and predicate function
 
-    //Write comments that help one better understand what the code is doing. 
+  //Write comments that help one better understand what the code is doing. 
 
       return 0; 
  }
