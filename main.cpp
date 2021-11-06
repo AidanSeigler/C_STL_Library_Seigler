@@ -9,7 +9,19 @@ create a single main.cpp that contains code samples and implementations of each 
 #include <vector>
 #include <algorithm> 
 #include <string>
+#include <stack>
+#include <cassert>
+#include <set>
+#include <utility>
+#include <map>
 using namespace std; 
+typedef map<string, int> MapT;
+typedef MapT::const_iterator MapIterT;
+
+bool less_than_7(int value)
+{
+  return value < 7;
+}
 
 //Credit https://www.geeksforgeeks.org/passing-vector-constructor-c/ clarifications added
 class MyClassVector1 
@@ -161,39 +173,122 @@ int main()
   }
 
   /****Section_Name*** Stack*/
-
-
   //Write comments that help one better understand what the code is doing.
+
+
+  // A stack is a container that allows a user to plug in and take out elements from the top of the container
+  stack<int> st; // Declaration
+
+  st.push(100); // Adding a number on top of the stack
+  assert(st.size() == 1); // Verification that 1 element is in the stack
+  assert(st.top() == 100); // Verifying the value of the element on top of the stack
+
+  st.top() = 456; // Assigning the new value
+  assert(st.top() == 456); // Verification of that value
+
+  st.pop(); // Removing the element from the stack
+  assert(st.empty() == true); // Verification that the stack is empty
+
 
   /****Section_Name**** Set*/
   //Write the code as presented in: 3. std::set
-
   //Write comments that help one better understand what the code is doing.
+
+
+  // A set is a container that is able to hold unique elements, meaning that it will only hold non-duplicant elements.
+  set<int> iset; // Declaration
+
+  // Declaration of elements in set container
+  iset.insert(11);
+  iset.insert(-11);
+  iset.insert(55);
+  iset.insert(22);
+  iset.insert(22);
+
+  if (iset.find(55) != iset.end() ) // If the value is not already stored, insert value
+  {
+    iset.insert(55);
+  }
+
+  assert(iset.size() == 4); // Double check to make sure the container is working properly
+
+  set<int>::iterator it2;
+  for (it2 = iset.begin(); it2 != iset.end(); it2++)
+  {
+    cout << " " << *it2;
+  }
+
 
   /****Section_Name****Pair_Structure*/
   //Write the code as presented in: 4. std::pair structure
-
   //Write comments that help one better understand what the code is doing.
+
+
+  // A pair is a lot like an array that will store only 2 elements
+  pair<string, string> strstr; //Decalaration of pair
+  strstr.first = "Hello";
+  strstr.second = "World";
+
+  pair<int, string> intstr;//Decalaration of pair
+  intstr.first = 1;
+  intstr.second = "one";
+
+  pair<string, int> strint("two", 2); //Decalaration of pair
+  assert(strint.first == "two");
+  assert(strint.second == 2);
+
 
   /****Section_Name**** Map_Insert*/
   //Write the code as presented in: 14. std::map::insert
-
   //Write comments that help one better understand what the code is doing.
+
+
+  // Insert can be used to add in a new element only if it isn't already present in the array
+  MapT amap; // Declaration
+  pair<MapIterT, bool> result = amap.insert(make_pair("Fred", 45));
+
+  assert(result.second == true);
 
   /****Section_Name****Map_Summary*/
   //Write the code as presented in: 16. Map summary
-
   //Write comments that help one better understand what the code is doing.
+
+
+  // A map basically allows you to assign a 'key' to an element, and the elements are always sorted by those keys
+  map<string, string> phone_book; // Declaration
+  phone_book["411"] = "Directory"; // Assigning 411 to Directory
+  phone_book["911"] = "Emergency"; // Assigning 911 to Emergency
+  phone_book["508-678-2811"] = "BCC"; // Assigning 508-678-2811 to BCC
+  if (phone_book.find("411") != phone_book.end())
+  {
+    phone_book.insert (make_pair(string("411"), string("Directory")));
+  } 
+  assert(phone_book.size() == 3); // Checking if container size is = to 3
+  map<string, string>::const_iterator it3; 
+  for (it3 = phone_book.begin(); it3 != phone_book.end(); ++it3)
+  {
+    cout << " " << it3->first << " " << it3->second << endl; // Printing out container elements
+  }
 
   /****Section_Name**** Sort_Algorithm*/
   //Write the code as presented in: 23. sort example
-
   //Write comments that help one better understand what the code is doing.
 
+
+  // The code will sort the range between two iterators.
+  int arr[100]; // Declaration
+  sort (arr, arr + 100);
+  vector<int> v1;
+  sort (v1.begin(), v1.end());
+
   /****Section_Name****Predicate_Algorithm*/
-  //Write the code as presented in: 25. count_if and predicate function
-
+  //Write the code as presented in: 25. count_if and predicate function\
   //Write comments that help one better understand what the code is doing. 
+  
+  // I wrote less_than_7 function towards top of program
+  // 
+  vector <int> v3; // Declaration of vector
+  int count_less = count_if(v3.begin(), v3.end(), less_than_7); 
 
-      return 0; 
+  return 0; 
  }
